@@ -63,18 +63,6 @@ export default class Footer extends React.Component {
                 	<div className="site-footer__info py-3 py-sm-4">
                 		<div className="container">
                 			<div className="grid items-center">
-                				{footer_content && (
-                				<div className={classNames('site-footer__copyright', 'cell-12', {'cell-sm': footer_social})}>
-                					{_.get(this.props, 'pageContext.site.siteMetadata.footer.content', null) && (
-                						<span>{htmlToReact(_.get(this.props, 'pageContext.site.siteMetadata.footer.content', null))}</span>
-                					)}
-                					{_.map(_.get(this.props, 'pageContext.site.siteMetadata.footer.links', null), (link, link_idx) => (
-                						<Link key={link_idx} to={withPrefix(_.get(link, 'url', null))}
-                							{...(_.get(link, 'new_window', null) ? ({target: '_blank'}) : null)}
-                							{...((_.get(link, 'new_window', null) || _.get(link, 'no_follow', null)) ? ({rel: (_.get(link, 'new_window', null) ? ('noopener ') : '') + (_.get(link, 'no_follow', null) ? ('nofollow') : '')}) : null)}>{_.get(link, 'label', null)}</Link>
-                					))}
-                				</div>
-                				)}
                 				{footer_social && (
                 				<div className={classNames('site-footer__social', 'cell-12', {'cell-sm-auto': footer_content})}>
                 					{_.map(_.get(this.props, 'pageContext.site.siteMetadata.footer.social_links', null), (link, link_idx) => {
